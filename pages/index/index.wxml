@@ -1,0 +1,7 @@
+<view class="cover">
+  <image src="https://codehhr.gitee.io/pictures/avatar/github.png"></image>
+</view>
+
+<button class="start" bindtap="switchToTabbar">
+  开始猜数
+</button>

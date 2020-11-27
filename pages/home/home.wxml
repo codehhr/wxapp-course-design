@@ -1,0 +1,9 @@
+<view class="title">
+    <text> 欢迎来到猜数字小游戏 </text>
+</view>
+
+<view class="main">
+    <button class="createnum"> 点击生成随机数 </button>
+    <input class="input" type="text" focus="{{true}}" />
+    <button class="sure"> 确定 </button>
+</view>

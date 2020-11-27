@@ -1,0 +1,32 @@
+/* pages/home/home.wxss */
+
+.title{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #ff71e0;
+}
+
+.main{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input{
+    border: 1px solid #eeeeee;
+    text-align: center;
+    color: #718e9b;
+    height: 68rpx;
+    font-weight: 600;
+}
+
+.input,.createnum,.sure{
+    background-color: #fdf9d3;
+    border-radius: 10px;
+    margin: 10px 0;
+}

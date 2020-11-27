@@ -1,0 +1,22 @@
+.cover{
+  position: absolute;
+  top: 28%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 358rpx;
+  height: 358rpx;
+}
+.cover image{
+  width: inherit;
+  height: inherit;
+}
+
+.start{
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: #eeeeee;
+  color: #2c4d5c;
+  border-radius: 10px;
+}
