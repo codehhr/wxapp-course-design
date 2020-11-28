@@ -8,13 +8,13 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#efca9e",
     "navigationBarTitleText": "猜数游戏",
-    "navigationBarTextStyle": "black",
-    "navigationStyle": "custom"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "color": "#707070",
-    "selectedColor": "#d4237a",
+    "color": "#000000",
+    "selectedColor": "#e97d4c",
     "borderStyle": "black",
+    "backgroundColor": "#fdebc3",
     "list": [{
       "selectedIconPath": "/imgs/homeselected.png",
       "iconPath": "/imgs/home.png",
