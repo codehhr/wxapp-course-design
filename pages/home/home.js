@@ -77,6 +77,7 @@ Page({
             this.setData({
                 correct: true
             })
+            
         }
     },
     // 重置

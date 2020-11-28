@@ -35,6 +35,7 @@
     background-color: #ffd79c;
     border-radius: 10px;
     margin: 10px 0;
+    box-shadow: 2px 4px 6px #e97d4c;
 }
 
 .input,
@@ -50,15 +51,13 @@
 /* 答对正确的提示框(默认隐藏) */
 .hint {
     position: absolute;
-    top: 50%;
+    top: 44%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 360rpx;
-    height: 100rpx;
+    width: 460rpx;
+    height: 118rpx;
     background-color: #fff1c1;
-    border-radius: 10px;
-    border: 4px solid #ffcc9c;
-    transition: all 1s;
+    border-radius: 28px;
+    border: 6px solid #ffba79;
     display: none;
 }
 
@@ -84,17 +83,18 @@
     right: -32rpx;
     width: 44rpx;
     height: 44rpx;
-    border: 4px solid #ffcc9c;
+    border: 7px solid #ffa754;
     border-radius: 50%;
     background-color: #ffcc9c;
     overflow: hidden;
+    transition: all 2s ease-in-out;
     z-index: 10;
 }
 
 /* 关闭按钮内的两条线(叉×) */
 .closehint .linel,
 .closehint .liner {
-    width: 98%;
+    width: 100%;
     height: 8rpx;
     border-radius: 4px;
     background-color: #ff891b;
