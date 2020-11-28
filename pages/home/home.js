@@ -1,3 +1,4 @@
+var util = require("../../utils/util")
 // pages/home/home.js
 Page({
 
@@ -32,9 +33,6 @@ Page({
     },
     // 确定
     sure() {
-        this.setData({
-            times: this.data.times += 1
-        })
         if (this.data.randomNum == "") {
             wx.showToast({
                 title: '请先点击生成随机数',
@@ -50,7 +48,12 @@ Page({
                 return;
             }
             if (/^([1-9]|[1-9]\d|100)$/.test(this.data.guessNum)) {
+                // 判断大小
                 this.tellNum()
+                // 计数一次
+                this.setData({
+                    times: this.data.times += 1
+                })
             } else {
                 wx.showToast({
                     title: '请输入1-100的正整数',
@@ -61,31 +64,53 @@ Page({
     },
     // 判断猜的数偏大或偏小
     tellNum() {
+        // 大了
         if (this.data.guessNum > this.data.randomNum) {
             wx.showToast({
                 title: '换个小点的数试试',
                 icon: "none",
                 duration: 2000
             })
-        } else if (this.data.guessNum < this.data.randomNum) {
+        }
+        // 小了 
+        else if (this.data.guessNum < this.data.randomNum) {
             wx.showToast({
                 title: '换个大点的数试试',
                 icon: "none",
                 duration: 2000
             })
-        } else {
+        }
+        // 猜对了
+        else {
+            // 弹窗提示答对啦
             this.setData({
                 correct: true
             })
-            
+            // 写入记录
+            this.recordToStorage()
         }
+    },
+    // 写入记录
+    recordToStorage() {
+        // 最近一次的记录
+        var currentRecord = {
+            randomNum: this.data.randomNum,
+            times: this.data.times,
+            time: util.formatTime(new Date())
+        }
+        // 获取已有的记录
+        var record = Array.from(wx.getStorageSync('record'))
+        // 把最近一次的记录加进去
+        record.push(currentRecord)
+        // 写入存储
+        wx.setStorageSync('record', record)
     },
     // 重置
     reset() {
         let that = this
         wx.showModal({
             title: "提示",
-            content: "重置随机数并清空输入",
+            content: "重置随机数并清空输入和次数",
             success: function (res) {
                 if (res.confirm) {
                     that.setData({

@@ -15,6 +15,7 @@
     font-size: 2rem;
     font-weight: 800;
     color: #e97d4c;
+    /* text-shadow: 2px 2px 4px #e97d4c; */
 }
 
 .main {
@@ -51,10 +52,10 @@
 /* 答对正确的提示框(默认隐藏) */
 .hint {
     position: absolute;
-    top: 44%;
+    top: 45%;
     left: 50%;
     width: 460rpx;
-    height: 118rpx;
+    height: 100rpx;
     background-color: #fff1c1;
     border-radius: 28px;
     border: 6px solid #ffba79;

@@ -1,3 +1,5 @@
-<view class="title">
-  记录
+<view class="body">
+  <view class="title">
+    我的战绩
+  </view>
 </view>
