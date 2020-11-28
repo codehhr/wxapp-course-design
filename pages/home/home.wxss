@@ -10,7 +10,7 @@
 /* 标题 */
 .title {
     position: relative;
-    top: 80px;
+    top: 60rpx;
     text-align: center;
     font-size: 2rem;
     font-weight: 800;
@@ -19,7 +19,7 @@
 
 .main {
     position: absolute;
-    top: 40%;
+    top: 46%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
@@ -27,21 +27,24 @@
     justify-content: center;
 }
 
-.input {
+.input,
+.createRandNum,
+.sure,
+.reset,
+.times {
+    background-color: #ffd79c;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.input,
+.times {
     text-align: center;
     color: #ff641c;
     width: 340rpx;
     height: 74rpx;
     line-height: 74rpx;
     font-weight: 600;
-}
-
-.input,
-.createRandNum,
-.sure {
-    background-color: #ffd79c;
-    border-radius: 10px;
-    margin: 10px 0;
 }
 
 /* 答对正确的提示框(默认隐藏) */
@@ -114,6 +117,5 @@
 /* 回答正确后显示提示框 */
 .correct {
     display: flex;
-    transform: scale(1.2);
     transform: translate(-50%, -50%);
 }
