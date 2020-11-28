@@ -1,5 +1,15 @@
 <view class="body">
+  <!-- title -->
   <view class="title">
     我的战绩
+  </view>
+  <!-- list -->
+  <view class="recordlist">
+    <view class="recorditem" wx:for="recordList" wx:key="item">
+      <view>{{index}}</view>
+      <view>{{item.randomNum}}</view>
+      <view>{{item.times}}</view>
+      <view>{{item.time}}</view>
+    </view>
   </view>
 </view>
