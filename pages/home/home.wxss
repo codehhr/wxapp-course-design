@@ -30,8 +30,9 @@
 .input {
     text-align: center;
     color: #ff641c;
-    height: 68rpx;
-    line-height: 68rpx;
+    width: 340rpx;
+    height: 74rpx;
+    line-height: 74rpx;
     font-weight: 600;
 }
 
