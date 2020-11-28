@@ -6,6 +6,16 @@
     <view class="main">
         <button class="createRandNum" bindtap="createRandNum"> 点击生成随机数 </button>
         <input class="input" type="text" focus="true" bindinput="guessNum" placeholder="填个数试试" />
-        <button class="sure"> 确定 </button>
+        <button class="sure" bindtap="sure"> 确定 </button>
+    </view>
+    <view class="hint {{correct?'correct':''}}">
+        <view class="closehint" bindtap="closeHint">
+            <view class="linel"></view>
+            <view class="liner"></view>
+        </view>
+        <view class="hintcontent">
+            <text>答对啦 !</text>
+            <iconfont name="dog"></iconfont>
+        </view>
     </view>
 </view>

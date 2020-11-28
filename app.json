@@ -27,6 +27,9 @@
       "text": "记录"
     }]
   },
+  "usingComponents": {
+    "iconfont": "/iconfont/iconfont"
+  },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
