@@ -1,4 +1,6 @@
 var util = require("../../utils/util")
+const backgroundAudioManager = wx.getBackgroundAudioManager();
+
 // pages/home/home.js
 Page({
 
@@ -6,10 +8,20 @@ Page({
      * 页面的初始数据
      */
     data: {
+        musicimg: "../../imgs/music.png", //背景音乐符号图片
+        isplay: false,
         correct: false,
         randomNum: "",
         guessNum: "",
         times: 0
+    },
+    /**
+     * 生命周期函数--监听页面加载
+     * 页面初始化
+     */
+    onLoad: function () {
+        // 控制背景音乐 ( 可取消注释 => 加载时自动播放 )
+        // this.ctrlMusic();
     },
     // 点击生成随机数
     createRandNum() {
@@ -27,7 +39,7 @@ Page({
         })
         console.log("新的随机数: " + this.data.randomNum)
     },
-    // 数据双向绑定 ( 猜的数 input )
+    // 数据双向绑定 ( input )
     guessNum(e) {
         this.setData({
             guessNum: e.detail.value
@@ -134,9 +146,9 @@ Page({
     //
     resetNoHint() {
         this.setData({
-            randomNum: "",
-            guessNum: "",
-            times: 0
+            randomNum: "", // 随机数
+            guessNum: "", // 猜的数
+            times: 0 // 猜的次数
         })
     },
     // 关闭回答正确后的提示框
@@ -144,5 +156,39 @@ Page({
         this.setData({
             correct: false
         })
-    }
+    },
+    // 控制背景音乐
+    ctrlMusic: function () {
+        // 为了结束时能循环,重新封装了一下 ( 方法有点笨 )
+        function play() {
+            const backgroundAudioManager = wx.getBackgroundAudioManager();
+            backgroundAudioManager.title = 'New Life';
+            backgroundAudioManager.singer = 'Peter Jeremias';
+            backgroundAudioManager.coverImgUrl = "https://ae01.alicdn.com/kf/Ud08f63ccb57b41988e5921036e61bca2r.jpg";
+            backgroundAudioManager.src = "https://codehhr.gitee.io/musics/new_life.mp3"
+        }
+        backgroundAudioManager.title = 'New Life';
+        backgroundAudioManager.singer = 'Peter Jeremias';
+        backgroundAudioManager.coverImgUrl = "https://ae01.alicdn.com/kf/Ud08f63ccb57b41988e5921036e61bca2r.jpg";
+        backgroundAudioManager.src = "https://codehhr.gitee.io/musics/new_life.mp3";
+
+        // 点击 暂停/播放
+        this.setData({
+            isplay: !this.data.isplay,
+        })
+        // 播放
+        if (this.data.isplay) {
+            // 结束时循环
+            backgroundAudioManager.onEnded(() => {
+                play()
+            })
+        }
+        // 暂停
+        else {
+            backgroundAudioManager.pause();
+            backgroundAudioManager.onPause(() => {
+                console.log("music stop!");
+            });
+        }
+    },
 })

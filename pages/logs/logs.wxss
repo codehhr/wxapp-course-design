@@ -41,7 +41,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 94%;
-  margin: 0 auto;
+  margin: 0 auto 100rpx;
   z-index: -1;
 }
 
@@ -58,10 +58,11 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  width: inherit;
+  width: 98%;
   height: 80rpx;
   background-color: #ffcf98;
-  margin: 8rpx auto;
+  box-shadow: 2px 4px 6px #e97d4c;
+  margin: 16rpx auto;
   border-radius: 10px;
 }
 
