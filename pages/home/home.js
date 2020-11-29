@@ -13,6 +13,8 @@ Page({
     },
     // 点击生成随机数
     createRandNum() {
+        // 先重置 ( 重置随机数并清空输入和次数 )
+        this.resetNoHint()
         // 1 - 100
         let randomNum = Math.floor(Math.random() * 100 + 1)
         this.setData({
@@ -47,13 +49,10 @@ Page({
                 })
                 return;
             }
+            // 匹配 1-100 的正整数
             if (/^([1-9]|[1-9]\d|100)$/.test(this.data.guessNum)) {
                 // 判断大小
                 this.tellNum()
-                // 计数一次
-                this.setData({
-                    times: this.data.times += 1
-                })
             } else {
                 wx.showToast({
                     title: '请输入1-100的正整数',
@@ -71,6 +70,7 @@ Page({
                 icon: "none",
                 duration: 2000
             })
+            this.count()
         }
         // 小了 
         else if (this.data.guessNum < this.data.randomNum) {
@@ -79,15 +79,18 @@ Page({
                 icon: "none",
                 duration: 2000
             })
+            this.count()
         }
         // 猜对了
         else {
             // 弹窗提示答对啦
             this.setData({
-                correct: true
+                correct: true,
             })
+            this.count()
             // 写入记录
             this.recordToStorage()
+            this.resetNoHint()
         }
     },
     // 写入记录
@@ -110,7 +113,7 @@ Page({
         let that = this
         wx.showModal({
             title: "提示",
-            content: "重置随机数并清空输入和次数",
+            content: "重置 随机数 并 清空输入 和 次数",
             success: function (res) {
                 if (res.confirm) {
                     that.setData({
@@ -120,6 +123,20 @@ Page({
                     })
                 } else {}
             }
+        })
+    },
+    // 计数一次
+    count() {
+        this.setData({
+            times: this.data.times += 1,
+        })
+    },
+    //
+    resetNoHint() {
+        this.setData({
+            randomNum: "",
+            guessNum: "",
+            times: 0
         })
     },
     // 关闭回答正确后的提示框

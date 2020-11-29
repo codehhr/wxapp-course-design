@@ -35,8 +35,16 @@
 .times {
     background-color: #ffd79c;
     border-radius: 10px;
-    margin: 10px 0;
-    box-shadow: 2px 4px 6px #e97d4c;
+    margin: 12px 0;
+    box-shadow: 2px 5px 6px #e97d4c;
+    transition-duration: 0.3s;
+}
+
+.createRandNum:active,
+.sure:active,
+.reset:active {
+    box-shadow: 2px 2px 2px #e97d4c;
+    transform: translateY(5px);
 }
 
 .input,
@@ -57,7 +65,7 @@
     width: 460rpx;
     height: 100rpx;
     background-color: #fff1c1;
-    border-radius: 28px;
+    border-radius: 20px;
     border: 6px solid #ffba79;
     display: none;
 }

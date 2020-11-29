@@ -1,15 +1,20 @@
 <view class="body">
   <!-- title -->
   <view class="title">
-    我的战绩
+    <text>我的战绩</text>
+    <button bindtap="cleanRecord">清空</button>
   </view>
   <!-- list -->
-  <view class="recordlist">
-    <view class="recorditem" wx:for="recordList" wx:key="item">
-      <view>{{index}}</view>
-      <view>{{item.randomNum}}</view>
-      <view>{{item.times}}</view>
-      <view>{{item.time}}</view>
+  <scroll-view class="recordlist" enable-flex="true" scroll-y="true">
+    <view class="recorditem" wx:for="{{recordList}}" wx:key="item">
+      <view class="recordinfo">{{index + 1}}</view>
+      <view class="recordinfo">随机数 <text class="randomnum">{{recordList[index].randomNum}}</text> </view>
+      <view class="recordinfo">猜了 <text class="times">{{recordList[index].times}}</text> 次</view>
+      <view class="recordinfo">{{recordList[index].time}}</view>
     </view>
+  </scroll-view>
+  <!-- 提示 -->
+  <view class="hint {{hadrecord?'hadrecord':''}}">
+    <text>目前啥也没有</text>
   </view>
 </view>

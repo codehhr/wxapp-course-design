@@ -1,27 +1,31 @@
-.body{
+.body {
   width: 100%;
   height: 100vh;
   background-color: #fdebc3;
 }
 
-.cover{
+.cover {
   position: absolute;
   top: 28%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   width: 358rpx;
   height: 358rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 2px 5px #ff9f51, 2px 0 5px #ff9f51, 0 -2px 5px #ff9f51, -2px 0 5px #ff9f51;
 }
-.cover image{
+
+.cover image {
   width: inherit;
   height: inherit;
 }
 
-.start{
+.start {
   position: absolute;
   top: 60%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   background-color: #eeeeee;
   color: #2c4550;
   border-radius: 10px;

@@ -1,6 +1,6 @@
 <view class="body">
   <view class="cover">
-    <image src="https://codehhr.gitee.io/pictures/avatar/github.png"></image>
+    <image src="/imgs/dog.jpg"></image>
   </view>
 
   <button class="start" bindtap="switchToTabbar">
