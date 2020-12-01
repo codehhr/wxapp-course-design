@@ -1,6 +1,4 @@
 var util = require("../../utils/util")
-const backgroundAudioManager = wx.getBackgroundAudioManager();
-
 // pages/home/home.js
 Page({
 
@@ -159,35 +157,36 @@ Page({
     },
     // 控制背景音乐
     ctrlMusic: function () {
-        // 为了结束时能循环,重新封装了一下 ( 方法有点笨 )
-        function play() {
-            const backgroundAudioManager = wx.getBackgroundAudioManager();
-            backgroundAudioManager.title = 'New Life';
-            backgroundAudioManager.singer = 'Peter Jeremias';
-            backgroundAudioManager.coverImgUrl = "https://ae01.alicdn.com/kf/Ud08f63ccb57b41988e5921036e61bca2r.jpg";
-            backgroundAudioManager.src = "https://codehhr.gitee.io/musics/new_life.mp3"
-        }
-        backgroundAudioManager.title = 'New Life';
-        backgroundAudioManager.singer = 'Peter Jeremias';
-        backgroundAudioManager.coverImgUrl = "https://ae01.alicdn.com/kf/Ud08f63ccb57b41988e5921036e61bca2r.jpg";
-        backgroundAudioManager.src = "https://codehhr.gitee.io/musics/new_life.mp3";
-
-        // 点击 暂停/播放
-        this.setData({
-            isplay: !this.data.isplay,
-        })
+        const backgroundAudioManager = wx.getBackgroundAudioManager()
+        backgroundAudioManager.title = 'New Life'
+        backgroundAudioManager.epname = 'New Life'
+        backgroundAudioManager.singer = 'Peter Jeremias'
+        backgroundAudioManager.coverImgUrl = "https://ae01.alicdn.com/kf/Ud08f63ccb57b41988e5921036e61bca2r.jpg"
+        backgroundAudioManager.src = "https://codehhr.gitee.io/musics/new_life.mp3"
         // 播放
-        if (this.data.isplay) {
+        if (!this.data.isplay) {
+            this.setData({
+                isplay: !this.data.isplay,
+            })
+            console.log("music playing !")
             // 结束时循环
             backgroundAudioManager.onEnded(() => {
-                play()
+                console.log("music end !")
+                this.setData({
+                    isplay: !this.data.isplay
+                })
+                console.log("music replay !")
+                this.ctrlMusic()
             })
         }
         // 暂停
         else {
+            this.setData({
+                isplay: !this.data.isplay,
+            })
             backgroundAudioManager.pause();
             backgroundAudioManager.onPause(() => {
-                console.log("music stop!");
+                console.log("music stop !");
             });
         }
     },
