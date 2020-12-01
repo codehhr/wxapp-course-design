@@ -1,9 +1,9 @@
 <view class="body">
   <view class="cover">
-    <image src="/imgs/dog.jpg"></image>
+    <image src="{{dog}}"></image>
   </view>
 
   <button class="start" bindtap="switchToTabbar">
-    开始猜数
+    开始
   </button>
 </view>

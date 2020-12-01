@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+    dog: "/imgs/dog.jpg",
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,

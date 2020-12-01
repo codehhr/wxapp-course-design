@@ -70,6 +70,12 @@
                 {
                     "name": "pages/logs/logs",
                     "pathName": "pages/logs/logs",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/index/index",
+                    "pathName": "pages/index/index",
                     "scene": null
                 }
             ]
