@@ -37,7 +37,7 @@ Page({
         })
         console.log("新的随机数: " + this.data.randomNum)
     },
-    // 数据双向绑定 ( input )
+    // 数据绑定 ( input )
     guessNum(e) {
         this.setData({
             guessNum: e.detail.value
