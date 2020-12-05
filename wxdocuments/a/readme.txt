@@ -1,0 +1,10 @@
+1.微信小程序 LocalStorage 机制：
+  每个微信小程序都可以有自己的本地缓存,可以通过 wx.setStorage（wx.setStorageSync）、wx.getStorage（wx.getStorageSync）、wx.clearStorage（wx.clearStorageSync）可以对本地缓存进行设置、获取和清理。同一个微信用户，同一个小程序 storage 上限为 10MB，localStorage 以用户维度隔离。
+
+2. 简述 ES6 中的异步函数：
+    Async函数是一个异步操作函数，本质上，Async函数是Generator函数的语法糖。async函数就是将 Generator 函数的星号（*）替换成async，将yield替换成await.返回值:async 函数返回一个 Promise 对象，可以使用 then 方法添加回调函数,内部所有await命令后面的 Promise 对象执行完，才会发生状态改变，除非遇到return语句或者抛出错误
+
+
+3.小程序的 js 引擎是否统一，原因是?：
+	小程序的 JavaScript 代码分为逻辑层脚本和 sjs 脚本，它们运行在相同的 JavaScript 引擎的不同线程中.
+	在不同操作系统上，小程序的 JavaScript 引擎是不同的。在 iOS 平台上，脚本运行在操作系统提供的 JavaScriptCore 引擎上；而在 Android 平台上，脚本则运行在 V8 引擎上
